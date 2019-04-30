@@ -20,7 +20,7 @@ char *readable_fs(double size, char *buf)
 }
 double precent = 0.0;
 int isDone = 1;
-void *say_hello(void *data)
+void *print_info_runner(void *data)
 {
     while (isDone)
     {
@@ -48,7 +48,7 @@ int main(void)
         return -1;
     }
     pthread_t t1;
-    pthread_create(&t1, NULL, say_hello, NULL);
+    pthread_create(&t1, NULL, print_info_runner, NULL);
     unsigned char buffer[1024];
     size_t bytesRead = 0;
     struct stat info;
@@ -78,9 +78,6 @@ int main(void)
     end = time(NULL);
     int timetook = end - start;
     printf("Time taken: %d s\n", timetook);
-    end = clock();
-    double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-    printf("Time taken: %f s\n", cpu_time_used);
     pthread_join(t1, NULL);
     return 0;
 }
