@@ -26,8 +26,8 @@ int main(void)
     int sel = 0;
     char buf[10];
     crc_t crc;
-    clock_t start, end;
-    start = clock();
+    time_t start, end;
+    start = time(NULL);
     crc = crc_init();
     FILE *file = NULL;
     file = fopen(filenames[sel], "rb");
@@ -58,8 +58,8 @@ int main(void)
 
     printf("CRC32 Hexadecimal: 0x%lX\n", (unsigned long)crc);
     printf("CRC32 Decimal: %ld\n", (unsigned long)crc);
-    end = clock();
-    double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-    printf("Time taken: %f s\n", cpu_time_used);
+    end = time(NULL);
+    int timetook = end - start;
+    printf("Time taken: %d s\n", timetook);
     return 0;
 }
