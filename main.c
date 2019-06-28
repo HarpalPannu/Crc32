@@ -32,7 +32,7 @@ int main(void)
 {
     char *filenames[5] =
         {
-            "/media/harpal/Data/New folder/It.2017.RERiP.720p.BluRay.x264-Pahe.in.mkv",
+            "01.mp3",
             "Manzil.mp3"};
     int sel = 0;
     char buf[10];
